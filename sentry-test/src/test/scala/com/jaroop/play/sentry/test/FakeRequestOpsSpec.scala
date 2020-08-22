@@ -16,7 +16,7 @@ class FakeRequestOpsSpec(implicit ee: ExecutionEnv) extends Specification {
         .bindings(new TestAuthModule)
         .overrides(bind[Router].toProvider[ScalaRoutesProvider])
         .in(Mode.Test)
-        .build
+        .build()
 
     "withLoggedIn" should {
 

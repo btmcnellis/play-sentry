@@ -157,7 +157,7 @@ class AsyncAuthSpec(implicit ee: ExecutionEnv) extends Specification with Mockit
             val auth = new AsyncAuthWithUser[TestEnv](config, idContainer, tokenAccessor)
             implicit val request = mock[RequestHeader]
             config.authorize(User.test, Admin).returns(Future.successful(true))
-            auth.authorized(Admin).map(_.right.map(_._1)) must beRight(User.test).await
+            auth.authorized(Admin).map(_.map(_._1)) must beRight(User.test).await
         }
 
         tag("authorized")
